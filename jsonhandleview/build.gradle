@@ -1,5 +1,15 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.novoda.bintray-release'
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.novoda:bintray-release:+'
+    }
+}
+
 android {
     compileSdkVersion 28
 
@@ -27,6 +37,25 @@ android {
     }
 
 }
+
+//如果你的项目里面有中文注释的话，必须将格式设置为UTF-8，不然会出现乱码
+tasks.withType(Javadoc){
+    options{
+        encoding 'UTF-8'
+        charSet 'UTF-8'
+        links "http://docs.oracle.com/javase/8/docs/api"
+    }
+}
+
+publish {
+    userOrg = 'stven0king'      //bintray注册的用户名
+    groupId = 'com.tzx.json'         //compile引用时的第1部分groupId
+    artifactId = 'jsonhandleview'     //compile引用时的第2部分项目名
+    publishVersion = '1.0.0'    //compile引用时的第3部分版本号
+    desc = 'Android json viewer, to convert json strings to a friendly readable format, it supports expend&collapsed json strings.'
+    website = 'https://github.com/stven0king/JsonHandleView'
+}
+
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
