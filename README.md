@@ -3,7 +3,9 @@ It's like json-handle, to convert json strings to a friendly readable format, it
 
 https://chrome.google.com/webstore/detail/json-handle/iahnhfdhidomcpggpaimmmahffihkfnj
 
-<img src="https://github.com/stven0king/JsonHandleView/blob/master/screenshots/json-handle.png?raw=true" width="270"/><img src="https://github.com/stven0king/JsonHandleView/blob/master/screenshots/json-handle.gif?raw=true" width="270"/>
+<img src="https://github.com/stven0king/JsonHandleView/blob/master/screenshots/json-handle.png?raw=true" width="270"/>
+
+<img src="https://github.com/stven0king/JsonHandleView/blob/master/screenshots/json-handle.gif?raw=true" width="270"/>
 
 ## Dependencies
 
