@@ -6,6 +6,7 @@ import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -35,8 +36,8 @@ public class JsonViewLayout extends ScrollView {
 
     public static float TEXT_SIZE_DP = 18;
 
-    private int TEXT_SIZE_DP_MAX = 30;
-    private int TEXT_SIZE_DP_MIN = 30;
+    private int TEXT_SIZE_DP_MAX = 32;
+    private int TEXT_SIZE_DP_MIN = 12;
 
     private int ARRAY_LENGTH_BACKGROUND = R.drawable.jsonview_select_bg;
 
@@ -267,7 +268,8 @@ public class JsonViewLayout extends ScrollView {
     float oldDist;
 
     private void zoom(float f) {
-        setTextSize(TEXT_SIZE_DP * (f / 38 + 1));
+        Log.d("tanzhenxing", "zoom = " + f);
+        setTextSize(TEXT_SIZE_DP * (f / 100 + 1));
     }
 
     private float spacing(MotionEvent event) {
