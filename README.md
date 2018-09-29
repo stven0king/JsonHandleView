@@ -8,7 +8,7 @@ https://chrome.google.com/webstore/detail/json-handle/iahnhfdhidomcpggpaimmmahff
 ## Dependencies
 
 ```java
-implementation 'com.tzx.json:jsonhandleview:1.0.0'
+implementation 'com.tzx.json:jsonhandleview:1.1.0'
 ```
 
 ## Usage

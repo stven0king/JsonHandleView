@@ -44,10 +44,10 @@ public class JsonView extends LinearLayout{
     private void initView() {
         setOrientation(VERTICAL);
         LayoutInflater.from(mContext).inflate(R.layout.item_view_jsonview_layout, this, true);
-        imageview = findViewById(R.id.icon);
-        keyTV = findViewById(R.id.key);
-        valueTV = findViewById(R.id.value);
-        commandTV = findViewById(R.id.command);
+        imageview = (ImageView) findViewById(R.id.icon);
+        keyTV = (TextView) findViewById(R.id.key);
+        valueTV = (TextView) findViewById(R.id.value);
+        commandTV = (TextView) findViewById(R.id.command);
         contentView = findViewById(R.id.content);
         contentView.setBackgroundColor(Color.TRANSPARENT);
         imageview.setVisibility(GONE);
