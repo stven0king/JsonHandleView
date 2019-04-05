@@ -356,37 +356,39 @@ public class JsonViewLayout extends ScrollView {
 
     public void expandAll() {
         if (contentView != null) {
-            clickAllView(contentView, true);
+            clickAllView(contentView, false);
         }
     }
 
     public void collapseAll() {
         if (contentView != null) {
-            clickAllView(contentView, false);
+            clickAllView(contentView, true);
         }
     }
 
-    private void clickAllView(ViewGroup viewGroup, boolean expand) {
+    private void clickAllView(ViewGroup viewGroup, boolean collapse) {
         if (viewGroup instanceof JsonView) {
             JsonView jsonView = (JsonView) viewGroup;
-            if (expand) {
-                jsonView.expand();
-            } else {
-                jsonView.collapse();
-            }
+            operationJsonView(jsonView, collapse);
         }
         for (int i = 0; i < viewGroup.getChildCount(); i++) {
             View view = viewGroup.getChildAt(i);
             if (viewGroup instanceof JsonView) {
                 JsonView jsonView = (JsonView) viewGroup;
-                if (expand) {
-                    jsonView.expand();
-                } else {
-                    jsonView.collapse();
-                }
+                operationJsonView(jsonView, collapse);
             }
             if (view instanceof ViewGroup) {
-                clickAllView((ViewGroup) view, expand);
+                clickAllView((ViewGroup) view, collapse);
+            }
+        }
+    }
+
+    private void operationJsonView(JsonView jsonView, boolean collapse) {
+        if (jsonView != null) {
+            if (collapse) {
+                jsonView.expand();
+            } else {
+                jsonView.collapse();
             }
         }
     }
