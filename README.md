@@ -7,10 +7,12 @@ https://chrome.google.com/webstore/detail/json-handle/iahnhfdhidomcpggpaimmmahff
 
 <img src="https://github.com/stven0king/JsonHandleView/blob/master/screenshots/json-handle.gif?raw=true" width="270"/>
 
+<img src="https://github.com/stven0king/JsonHandleView/blob/master/screenshots/json-expand.gif?raw=true" width="270"/>
+
 ## Dependencies
 
 ```java
-implementation 'com.tzx.json:jsonhandleview:1.1.0'
+implementation 'com.tzx.json:jsonhandleview:1.2.1'
 ```
 
 ## Usage
@@ -56,6 +58,10 @@ jsonViewLayout.setArrayLengthColor()
 
 // TextSize
 jsonViewLayout.setTextSize()
+
+//expand/collapse
+jsonViewLayout.expandAll();
+jsonViewLayout.collapseAll();
 ```
 
 ## LICENSE
