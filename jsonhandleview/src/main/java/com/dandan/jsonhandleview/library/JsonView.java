@@ -108,6 +108,16 @@ public class JsonView extends LinearLayout{
         imageview.setOnClickListener(listener);
     }
 
+    public void expand() {
+        imageview.setTag(false);
+        imageview.callOnClick();
+    }
+
+    public void collapse() {
+        imageview.setTag(true);
+        imageview.callOnClick();
+    }
+
     public void addViewNoInvalidate(View child) {
         ViewGroup.LayoutParams params = child.getLayoutParams();
         if (params == null) {

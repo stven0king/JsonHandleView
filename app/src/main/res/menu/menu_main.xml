@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".DemoActivity">
+    <item android:id="@+id/action_expend"
+        android:title="expend"
+        app:showAsAction="always"  />
+
+    <item android:id="@+id/action_collapse"
+        android:title="collapse"
+        app:showAsAction="always"  />
+</menu>

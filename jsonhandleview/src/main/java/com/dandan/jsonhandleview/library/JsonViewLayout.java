@@ -9,6 +9,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
@@ -198,6 +199,11 @@ public class JsonViewLayout extends ScrollView {
 
         @Override
         public void onClick(View v) {
+            Object obj = v.getTag();
+            if (obj != null && obj instanceof Boolean) {
+                this.isexpand = (boolean) obj;
+                v.setTag(null);
+            }
             if (itemView.getChildCount() == 1) {
                 this.isexpand = false;
                 JSONArray array = isJsonArray ? (JSONArray) value : ((JSONObject) value).names();
@@ -346,6 +352,43 @@ public class JsonViewLayout extends ScrollView {
             levelStr.append("      ");
         }
         return levelStr.toString();
+    }
+
+    public void expandAll() {
+        if (contentView != null) {
+            clickAllView(contentView, true);
+        }
+    }
+
+    public void collapseAll() {
+        if (contentView != null) {
+            clickAllView(contentView, false);
+        }
+    }
+
+    private void clickAllView(ViewGroup viewGroup, boolean expand) {
+        if (viewGroup instanceof JsonView) {
+            JsonView jsonView = (JsonView) viewGroup;
+            if (expand) {
+                jsonView.expand();
+            } else {
+                jsonView.collapse();
+            }
+        }
+        for (int i = 0; i < viewGroup.getChildCount(); i++) {
+            View view = viewGroup.getChildAt(i);
+            if (viewGroup instanceof JsonView) {
+                JsonView jsonView = (JsonView) viewGroup;
+                if (expand) {
+                    jsonView.expand();
+                } else {
+                    jsonView.collapse();
+                }
+            }
+            if (view instanceof ViewGroup) {
+                clickAllView((ViewGroup) view, expand);
+            }
+        }
     }
 }
 
