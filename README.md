@@ -12,7 +12,7 @@ https://chrome.google.com/webstore/detail/json-handle/iahnhfdhidomcpggpaimmmahff
 ## Dependencies
 
 ```java
-implementation 'com.tzx.json:jsonhandleview:1.2.1'
+implementation 'com.tzx.json:jsonhandleview:1.2.2'
 ```
 
 ## Usage
