@@ -51,7 +51,7 @@ publish {
     userOrg = 'stven0king'      //bintray注册的用户名
     groupId = 'com.tzx.json'         //compile引用时的第1部分groupId
     artifactId = 'jsonhandleview'     //compile引用时的第2部分项目名
-    publishVersion = '1.2.1'    //compile引用时的第3部分版本号
+    publishVersion = '1.2.2'    //compile引用时的第3部分版本号
     desc = 'Android json viewer, to convert json strings to a friendly readable format, it supports expend&collapsed json strings.'
     website = 'https://github.com/stven0king/JsonHandleView'
 }

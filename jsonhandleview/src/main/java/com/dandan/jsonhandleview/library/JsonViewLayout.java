@@ -205,25 +205,29 @@ public class JsonViewLayout extends ScrollView {
                 v.setTag(null);
             }
             if (itemView.getChildCount() == 1) {
-                this.isexpand = false;
                 JSONArray array = isJsonArray ? (JSONArray) value : ((JSONObject) value).names();
-                if (!isJsonArray && array.length() == 1 && "nameValuePairs".equals(array.opt(0).toString())) {
-                    Object nameValuePairs = ((JSONObject) value).opt("nameValuePairs");
-                    if (null != nameValuePairs) {
-                        value = nameValuePairs;
-                        isJsonArray = value instanceof  JSONArray;
-                        array = isJsonArray ? (JSONArray) value : ((JSONObject) value).names();
+                if (null != array) {
+                    this.isexpand = false;
+                    if (!isJsonArray && array.length() == 1 && "nameValuePairs".equals(array.opt(0).toString())) {
+                        Object nameValuePairs = ((JSONObject) value).opt("nameValuePairs");
+                        if (null != nameValuePairs) {
+                            value = nameValuePairs;
+                            isJsonArray = value instanceof JSONArray;
+                            array = isJsonArray ? (JSONArray) value : ((JSONObject) value).names();
+                        }
                     }
-                }
-                for (int i = 0; array != null && i < array.length(); i++) {
-                    JsonView childItemView = new JsonView(itemView.getContext());
-                    Object childValue = array.opt(i);
-                    if (isJsonArray) {
-                        handleJsonObject(String.valueOf(i), childValue, childItemView, hierarchy);
-                    } else {
-                        handleJsonObject((String) childValue, ((JSONObject) value).opt((String) childValue), childItemView, hierarchy);
+                    for (int i = 0; array != null && i < array.length(); i++) {
+                        JsonView childItemView = new JsonView(itemView.getContext());
+                        Object childValue = array.opt(i);
+                        if (isJsonArray) {
+                            handleJsonObject(String.valueOf(i), childValue, childItemView, hierarchy);
+                        } else {
+                            handleJsonObject((String) childValue, ((JSONObject) value).opt((String) childValue), childItemView, hierarchy);
+                        }
+                        itemView.addViewNoInvalidate(childItemView);
                     }
-                    itemView.addViewNoInvalidate(childItemView);
+                } else {
+                    this.isexpand = !isexpand;
                 }
                 itemView.showIcon(isexpand);
                 itemView.requestLayout();
